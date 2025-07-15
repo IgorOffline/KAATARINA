@@ -1,0 +1,3 @@
+
+PRETTIER
+yarn prettier --write ./src/main/resources/templates
