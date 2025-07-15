@@ -8,6 +8,11 @@ public class KaatarinaController {
 
     @GetMapping("/hello")
     public String getHello() {
-        return "hello";
+        return "fm-hello";
+    }
+
+    @GetMapping("/typaero")
+    public String getTypaero() {
+        return "fm-typaero";
     }
 }

@@ -1,3 +1,6 @@
 
 PRETTIER
 yarn prettier --write ./src/main/resources/templates
+
+FLATBUFFERS
+flatc --java --ts kaatarinapractice.fbs
