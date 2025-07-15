@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: Kaatarina
+  mvc:
+    view:
+      suffix: .html
+  freemarker:
+    suffix: .html
+    template-loader-path: classpath:/templates
+logging:
+  level:
+    org.springframework.web.servlet.view.freemarker: DEBUG
