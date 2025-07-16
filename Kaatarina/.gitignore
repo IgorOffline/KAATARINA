@@ -43,3 +43,8 @@ out/
 /node_modules/
 /tatia-dir/node_modules/
 /flatbuffer-dir/Linux.flatc.binary.clang++-18.zip
+/flatbuffer-dir/Kaatarina/
+/flatbuffer-dir/kaatarina/
+/flatobo-practice/first-flatobo/node_modules
+/flatobo-practice/first-flatobo/dist
+/flatobo-practice/first-flatobo/src/kaatarina

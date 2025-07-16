@@ -1,4 +1,4 @@
-namespace Kaatarina.Practice;
+namespace Kaatarina.Flatabo;
 
 table Practice {
   id:int;
