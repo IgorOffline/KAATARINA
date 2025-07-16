@@ -1,6 +1,6 @@
 
 PRETTIER
-yarn prettier --write ./src/main/resources/templates
+yarn prettier --write ../src/main/resources/templates
 
 YARN
 yarn build

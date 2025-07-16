@@ -1,5 +1,5 @@
 import {Builder, ByteBuffer} from "flatbuffers";
-import {Practice} from "./kaatarina/flatabo/practice";
+import {Practice} from "../kaatarina/flatabo/practice";
 
 const builder = new Builder(1024);
 
@@ -7,7 +7,7 @@ const name = builder.createString("Kaatarina");
 
 Practice.startPractice(builder);
 Practice.addId(builder, 1);
-Practice.addAge(builder, 18);
+Practice.addAge(builder, 77);
 Practice.addName(builder, name);
 Practice.addPractice(builder, true);
 const serde = Practice.endPractice(builder);
