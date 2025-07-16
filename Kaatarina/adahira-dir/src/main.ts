@@ -1,27 +1,28 @@
 import {ByteBuffer} from "flatbuffers";
 import {Practice} from "../kaatarina/flatabo/practice";
 
+const urlRenata1 = '/renata/1';
+
 async function kaatarinaGetHello() {
-    const response = await fetch('/hello');
+    const response = await fetch(urlRenata1);
     const arrayBuffer = await response.arrayBuffer();
     const bytes = new Uint8Array(arrayBuffer);
     const bb = new ByteBuffer(bytes);
 
     const practice = Practice.getRootAsPractice(bb);
 
-    console.log("ID=", practice.id());
-    console.log("Age=", practice.age());
-    console.log("Name=", practice.name());
-    console.log("Practice flag=", practice.practice());
+    console.log("practice.id()=", practice.id());
+    console.log("practice.age()=", practice.age());
+    console.log("practice.name()=", practice.name());
+    console.log("practice.practice()=", practice.practice());
 }
 
 export function kaatarinaReady(fn: (this: Document, ev: Event) => any) {
-    console.log('kaatarinaReady START');
     if (document.readyState !== 'loading') {
-        kaatarinaGetHello().then(r => console.log('kaatarinaGetHello() DONE'));
+        kaatarinaGetHello().then(r => console.log('DONE kaatarinaGetHello()'));
     } else {
         document.addEventListener('DOMContentLoaded', fn);
     }
 }
 
-console.log('kaatarinaMain');
+console.log('KAATARINA MAIN-TS');

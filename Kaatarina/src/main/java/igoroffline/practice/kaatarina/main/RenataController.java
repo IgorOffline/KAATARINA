@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RenataController {
 
-    @GetMapping("/hello")
-    public byte[] getHello() {
+    @GetMapping("/renata/1")
+    public byte[] getRenata1() {
 
         final var builder = new FlatBufferBuilder(1024);
 
-        int nameOffset = builder.createString("JavaName");
+        int nameOffset = builder.createString("Renata1");
 
         Practice.startPractice(builder);
         Practice.addId(builder, 1);
