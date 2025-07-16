@@ -1,19 +1,18 @@
-import {Builder, ByteBuffer} from "flatbuffers";
+import {ByteBuffer} from "flatbuffers";
 import {Practice} from "../kaatarina/flatabo/practice";
 
 async function kaatarinaGetHello() {
-    const url = 'http://localhost:8080/hello';
-    fetch('/hello')
-        .then(res => res.arrayBuffer())
-        .then(buf => {
-            const bytes = new Uint8Array(buf);
-            const bb = new ByteBuffer(bytes);
-            const practice = Practice.getRootAsPractice(bb);
-            console.log(practice.age());
-        })
-        .catch(err => {
-            console.error("FlatBuff err; ", err);
-        });
+    const response = await fetch('/hello');
+    const arrayBuffer = await response.arrayBuffer();
+    const bytes = new Uint8Array(arrayBuffer);
+    const bb = new ByteBuffer(bytes);
+
+    const practice = Practice.getRootAsPractice(bb);
+
+    console.log("ID=", practice.id());
+    console.log("Age=", practice.age());
+    console.log("Name=", practice.name());
+    console.log("Practice flag=", practice.practice());
 }
 
 export function kaatarinaReady(fn: (this: Document, ev: Event) => any) {

@@ -2,9 +2,6 @@ package igoroffline.practice.kaatarina.main;
 
 import Kaatarina.Flatabo.Practice;
 import com.google.flatbuffers.FlatBufferBuilder;
-import java.nio.ByteBuffer;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RenataController {
 
     @GetMapping("/hello")
-    public ResponseEntity<ByteBuffer> getHello() {
+    public byte[] getHello() {
 
         final var builder = new FlatBufferBuilder(1024);
 
@@ -27,10 +24,9 @@ public class RenataController {
 
         builder.finish(practiceOffset);
 
-        ByteBuffer buf = builder.dataBuffer();
-
-        return ResponseEntity.ok()
-                .contentType(MediaType.APPLICATION_OCTET_STREAM)
-                .body(buf);
+        final var buffer = builder.dataBuffer();
+        byte[] bytes = new byte[buffer.remaining()];
+        buffer.get(bytes);
+        return bytes;
     }
 }
