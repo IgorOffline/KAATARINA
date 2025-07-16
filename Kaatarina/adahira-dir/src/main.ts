@@ -1,22 +1,28 @@
-import {Builder, ByteBuffer} from "flatbuffers";
+import {ByteBuffer} from "flatbuffers";
 import {Practice} from "../kaatarina/flatabo/practice";
 
-const builder = new Builder(1024);
+const urlRenata1 = '/renata/1';
 
-const name = builder.createString("Kaatarina");
+async function kaatarinaGetHello() {
+    const response = await fetch(urlRenata1);
+    const arrayBuffer = await response.arrayBuffer();
+    const bytes = new Uint8Array(arrayBuffer);
+    const bb = new ByteBuffer(bytes);
 
-Practice.startPractice(builder);
-Practice.addId(builder, 1);
-Practice.addAge(builder, 77);
-Practice.addName(builder, name);
-Practice.addPractice(builder, true);
-const serde = Practice.endPractice(builder);
+    const practice = Practice.getRootAsPractice(bb);
 
-builder.finish(serde);
+    console.log("practice.id()=", practice.id());
+    console.log("practice.age()=", practice.age());
+    console.log("practice.name()=", practice.name());
+    console.log("practice.practice()=", practice.practice());
+}
 
-const buf = builder.asUint8Array();
+export function kaatarinaReady(fn: (this: Document, ev: Event) => any) {
+    if (document.readyState !== 'loading') {
+        kaatarinaGetHello().then(r => console.log('DONE kaatarinaGetHello()'));
+    } else {
+        document.addEventListener('DOMContentLoaded', fn);
+    }
+}
 
-const practiceBuffer = new ByteBuffer(buf);
-const practice = Practice.getRootAsPractice(practiceBuffer);
-
-console.log(`practice.age()=${practice.age()}`);
+console.log('KAATARINA MAIN-TS');

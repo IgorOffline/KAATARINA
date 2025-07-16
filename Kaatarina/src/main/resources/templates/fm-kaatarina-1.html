@@ -8,6 +8,13 @@
       rel="stylesheet"
     />
     <script type="module" src="/resources/js/bundle.js"></script>
+    <script type="module">
+      import {kaatarinaReady} from '/resources/js/bundle.js';
+
+      kaatarinaReady(function () {
+        console.log('KAATARINA-1 READY');
+      });
+    </script>
     <title>The Overdesign Poem</title>
   </head>
 
