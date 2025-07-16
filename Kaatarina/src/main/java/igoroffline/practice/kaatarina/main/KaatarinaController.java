@@ -6,13 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class KaatarinaController {
 
-    @GetMapping("/hello")
-    public String getHello() {
-        return "fm-hello";
-    }
-
-    @GetMapping("/typaero")
-    public String getTypaero() {
-        return "fm-typaero";
+    @GetMapping("/sunshine")
+    public String getSunshine() {
+        return "fm-sunshine";
     }
 }
