@@ -1,0 +1,10 @@
+namespace Kaatarina.Flatabo;
+
+table Practice {
+  id:int;
+  age:int;
+  name:string;
+  practice:bool;
+}
+
+root_type Practice;
