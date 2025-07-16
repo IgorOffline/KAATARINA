@@ -40,15 +40,12 @@ out/
 #
 #
 
-/node_modules/
-/tatia-dir/node_modules/
+**/node_modules/
 /flatbuffer-dir/Linux.flatc.binary.clang++-18.zip
 /flatbuffer-dir/Kaatarina/
 /flatbuffer-dir/kaatarina/
-/flatabo-practice/node_modules
 /flatabo-practice/dist
 /flatabo-practice/src/kaatarina
-/rollup-practice/node_modules
 /rollup-practice/dist
 /rollup-practice/src/kaatarina
 
