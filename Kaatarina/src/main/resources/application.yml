@@ -1,6 +1,12 @@
-spring:
+micronaut:
   application:
     name: Kaatarina
-logging:
-  level:
-    org.springframework.web.servlet.view.freemarker: DEBUG
+datasources:
+  default:
+    db-type: postgres
+    dialect: POSTGRES
+    driver-class-name: org.postgresql.Driver
+    schema-generate: NONE
+    url: REPLACE_WITH_ACTUAL_URL
+    username: REPLACE_WITH_ACTUAL_USERNAME
+    password: REPLACE_WITH_ACTUAL_PASSWORD
